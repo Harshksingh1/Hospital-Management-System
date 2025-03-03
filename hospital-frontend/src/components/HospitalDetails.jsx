@@ -11,7 +11,7 @@ export default function HospitalDetails() {
   useEffect(() => {
     const fetchHospitalDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/hospitals/details?id=${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/hospitals/details?id=${id}`);
         setHospital(response.data);
       } catch (error) {
         console.error("Error fetching hospital details:", error);
@@ -28,7 +28,7 @@ export default function HospitalDetails() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/v1/hospitals/delete?id=${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/v1/hospitals/delete?id=${id}`);
       alert("Hospital deleted successfully");
       navigate("/"); // Redirect to home page after deletion
     } catch (error) {

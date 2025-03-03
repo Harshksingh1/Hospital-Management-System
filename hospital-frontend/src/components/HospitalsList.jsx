@@ -12,7 +12,7 @@ export default function HospitalsList() {
 
   const fetchHospitals = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/v1/hospitals");
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/hospitals`);
       setHospitals(response.data);
     } catch (error) {
       console.error("Error fetching hospitals:", error);
@@ -26,7 +26,7 @@ export default function HospitalsList() {
     }
 
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/hospitals?city=${searchCity}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/hospitals?city=${searchCity}`);
       setHospitals(response.data);
     } catch (error) {
       console.error("Error searching hospitals:", error);

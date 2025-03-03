@@ -36,7 +36,7 @@ export default function AddHospital() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/hospitals/create", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/hospitals/create`, {
         name: formData.name,
         city: formData.city,
         image: formData.image,
